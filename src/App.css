@@ -1,0 +1,125 @@
+/* =========================================
+   GLOBAL RESET & VARIABLES
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #1a1a1a; /* Fondo oscuro estilo DB Super */
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+/* =========================================
+   LAYOUT PRINCIPAL
+   ========================================= */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+  color: #ffcc00; /* Dorado Dragon Ball */
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  padding-bottom: 50px;
+}
+
+.loading-text, .error-text {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 50px;
+}
+
+.error-text { color: #ff4444; }
+
+/* =========================================
+   COMPONENTE: CHARACTER CARD
+   ========================================= */
+.character-card {
+  background-color: #2a2f3a; /* Un gris ligeramente más claro que el fondo */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #333;
+}
+
+.character-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(255, 204, 0, 0.15); /* Resplandor dorado al pasar mouse */
+  border-color: #ffcc00;
+}
+
+/* Imagen con fondo */
+.card-image-box {
+  height: 320px;
+  background-image: url('https://web.dragonball-api.com/images-compress/KdH.webp'); /* Fondo de nubes */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-image-box img {
+  height: 110%; /* Un poco más grande para efecto pop-out */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+  transition: transform 0.4s ease;
+}
+
+.character-card:hover .card-image-box img {
+  transform: scale(1.1);
+}
+
+/* Contenido de texto */
+.card-info {
+  padding: 20px;
+}
+
+.card-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.card-race {
+  color: #ffcc00;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  display: block;
+  font-weight: bold;
+}
+
+.card-stats p {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #444;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.card-stats span {
+  color: #fff;
+  font-weight: 600;
+}
